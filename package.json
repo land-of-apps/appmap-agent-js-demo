@@ -1,0 +1,15 @@
+{
+  "name": "appmap-agent-js-demo",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "^4.17.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@appland/appmap-agent-js": "^9.1.0",
+    "mocha": "^9.1.3"
+  },
+  "scripts": {
+    "test": "npx mocha"
+  }
+}
