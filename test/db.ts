@@ -1,18 +1,18 @@
 import { strict as assert } from "assert";
-import sqlite3 from "sqlite3";
+import {Database} from "sqlite3";
 import {
   createDBAsync,
   initializeDBAsync,
   signupAsync,
   signinAsync,
-} from "../lib/db.mjs";
+} from "../src/db";
 
 const user = { email: "john.doe@mail", name: "john", password: "1234" };
 
 describe("createDBAsync", () => {
   it("it should return a sqlite3.Database", async () => {
     const db = await createDBAsync(":memory:");
-    assert.ok(db instanceof sqlite3.Database);
+    assert.ok(db instanceof Database);
   });
 });
 

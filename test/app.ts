@@ -1,8 +1,8 @@
 import { createServer, request } from "http";
 import { strict as assert } from "assert";
-import { createDBAsync, initializeDBAsync, signupAsync } from "../lib/db.mjs";
-import { listenServerAsync, closeServerAsync } from "../lib/server.mjs";
-import { createApp } from "../lib/app.mjs";
+import { createDBAsync, initializeDBAsync, signupAsync } from "../src/db";
+import { listenServerAsync, closeServerAsync } from "../src/server";
+import { createApp } from "../src/app";
 
 const requestAsync = (options) =>
   new Promise((resolve, reject) => {

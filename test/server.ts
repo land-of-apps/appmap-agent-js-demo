@@ -1,7 +1,7 @@
 
 import { strict as assert } from "assert";
 import { Server } from "http";
-import {createServerAsync, listenServerAsync, closeServerAsync} from "../lib/server.mjs";
+import {createServerAsync, listenServerAsync, closeServerAsync} from "../src/server";
 
 describe("createServerAsync", () => {
   it("should return a http.Server", async () => {

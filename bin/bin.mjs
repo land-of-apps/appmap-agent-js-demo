@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import minimist from "minimist";
-import {createServerAsync, listenServerAsync} from "../lib/server.mjs";
+import {createServerAsync, listenServerAsync} from "../build/server.mjs";
 
 const options = {
   ... minimist(process.argv.slice()),
