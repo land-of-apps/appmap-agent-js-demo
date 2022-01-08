@@ -1,15 +1,15 @@
+import { Database } from "sqlite3";
 
-import {Database} from "sqlite3";
-
-export const createDBAsync = (persistency) => new Promise((resolve, reject) => {
-  const db = new Database(persistency, (error) => {
-    if (error) {
-      reject(error);
-    } else {
-      resolve(db);
-    }
+export const createDBAsync = (persistency) =>
+  new Promise((resolve, reject) => {
+    const db = new Database(persistency, (error) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(db);
+      }
+    });
   });
-});
 
 export const initializeDBAsync = (db) =>
   new Promise((resolve, reject) => {
