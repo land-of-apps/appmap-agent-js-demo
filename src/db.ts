@@ -11,7 +11,7 @@ export const createDBAsync = (persistency: string): Promise<Database> =>
     });
   });
 
-export const initializeDBAsync = (db: Database): Promise<undefined> =>
+export const initializeDBAsync = (db: Database) =>
   new Promise((resolve, reject) => {
     db.run(
       `CREATE TABLE IF NOT EXISTS user (
@@ -40,16 +40,13 @@ export type user = {
   name: string;
 };
 
-export const signinAsync = (
-  db: Database,
-  { email, password }: auth
-): Promise<null | user> =>
+export const signinAsync = (db: Database, { email, password }: auth) =>
   new Promise((resolve, reject) => {
     db.get(
       "SELECT name FROM user WHERE email = ? AND password = ?;",
       email,
       password,
-      (error: Error, result: undefined | {name: string}) => {
+      (error: Error, result: undefined | { name: string }) => {
         if (error) {
           reject(error);
         } else if (result === undefined) {
@@ -61,10 +58,7 @@ export const signinAsync = (
     );
   });
 
-export const signupAsync = (
-  db: Database,
-  { email, password, name }: user
-): Promise<boolean> =>
+export const signupAsync = (db: Database, { email, password, name }: user) =>
   new Promise((resolve) => {
     db.run(
       "INSERT INTO user (email, password, name) VALUES (?, ?, ?);",

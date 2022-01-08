@@ -1,5 +1,5 @@
 import { strict as assert } from "assert";
-import { Server } from "http";
+import { Server } from "net";
 import {
   createServerAsync,
   listenServerAsync,
@@ -7,7 +7,7 @@ import {
 } from "../src/server";
 
 describe("createServerAsync", () => {
-  it("should return a http.Server", async () => {
+  it("should return a net.Server", async () => {
     assert.ok((await createServerAsync(":memory:")) instanceof Server);
   });
 });

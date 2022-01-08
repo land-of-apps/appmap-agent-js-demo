@@ -1,9 +1,8 @@
-import { Express } from "express";
 import express from "express";
 import { Database } from "sqlite3";
 import { signinAsync, signupAsync } from "./db";
 
-export const createApp = (db: Database): Express => {
+export const createApp = (db: Database) => {
   const app = express();
   app.post("/signup/:email/:password/:name", async (req, res) => {
     res.status((await signupAsync(db, req.params)) ? 200 : 400).end();

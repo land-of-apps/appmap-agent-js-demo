@@ -1,12 +1,13 @@
 import { createServer, request } from "http";
+import { Express } from "express";
 import { strict as assert } from "assert";
 import { createDBAsync, initializeDBAsync, signupAsync } from "../src/db";
 import { listenServerAsync, closeServerAsync } from "../src/server";
 import { createApp } from "../src/app";
 
-const requestAsync = (options) =>
+const requestAsync = (port: number, method: string, path: string) =>
   new Promise((resolve, reject) => {
-    const req = request(options);
+    const req = request({ port, method, path });
     req.on("error", reject);
     req.on("response", (res) => {
       res.on("error", reject);
@@ -24,11 +25,11 @@ const requestAsync = (options) =>
     req.end();
   });
 
-const runAsync = async (app, method, path) => {
+const runAsync = async (app: Express, method: string, path: string) => {
   const server = createServer(app);
   const port = await listenServerAsync(server, 0);
   try {
-    return await requestAsync({ port, method, path });
+    return await requestAsync(port, method, path);
   } finally {
     await closeServerAsync(server);
   }
