@@ -53,9 +53,6 @@ describe("signinAsync", async () => {
     const db = await createDBAsync(":memory:");
     await initializeDBAsync(db);
     await signupAsync(db, user);
-    assert.deepEqual(await signinAsync(db, user), {
-      name: user.name,
-      email: user.email,
-    });
+    assert.deepEqual(await signinAsync(db, user), user);
   });
 });

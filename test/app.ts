@@ -73,7 +73,7 @@ describe("GET /signin", async () => {
     await signupAsync(db, user);
     assert.deepEqual(await runAsync(createApp(db), "GET", path), {
       status: 200,
-      body: { email: "john.doe@mail", name: "john" },
+      body: user,
     });
   });
 });

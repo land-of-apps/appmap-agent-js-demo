@@ -1,7 +1,8 @@
 import minimist from "minimist";
+import { Server } from "net";
 import { createServerAsync, listenServerAsync } from "./server";
 
-export const mainAsync = async (argv) => {
+export const mainAsync = async (argv: string[]): Promise<Server> => {
   const options = {
     ...minimist(argv),
     persistency: ":memory:",
