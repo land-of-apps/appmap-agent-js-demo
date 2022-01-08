@@ -2,7 +2,7 @@ import { Database } from "sqlite3";
 
 export const createDBAsync = (persistency: string): Promise<Database> =>
   new Promise((resolve, reject) => {
-    const db = new Database(persistency, (error) => {
+    const db = new Database(persistency, (error: Error) => {
       if (error) {
         reject(error);
       } else {
@@ -19,7 +19,7 @@ export const initializeDBAsync = (db: Database): Promise<undefined> =>
         password TEXT NOT NULL,
         name TEXT NOT NULL
       )`,
-      (error) => {
+      (error: Error) => {
         if (error) {
           reject(error);
         } else {
@@ -43,13 +43,13 @@ export type user = {
 export const signinAsync = (
   db: Database,
   { email, password }: auth
-): Promise<user> =>
+): Promise<null | user> =>
   new Promise((resolve, reject) => {
     db.get(
       "SELECT name FROM user WHERE email = ? AND password = ?;",
       email,
       password,
-      (error, result) => {
+      (error: Error, result: undefined | {name: string}) => {
         if (error) {
           reject(error);
         } else if (result === undefined) {
@@ -71,7 +71,7 @@ export const signupAsync = (
       email,
       password,
       name,
-      (error) => {
+      (error: Error) => {
         resolve(!error);
       }
     );
