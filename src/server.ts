@@ -1,7 +1,6 @@
-
-import {createServer} from "http";
-import {createApp} from "./app";
-import {createDBAsync, initializeDBAsync} from "./db";
+import { createServer } from "http";
+import { createApp } from "./app";
+import { createDBAsync, initializeDBAsync } from "./db";
 
 export const listenServerAsync = (server, port) =>
   new Promise((resolve, reject) => {
