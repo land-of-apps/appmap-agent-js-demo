@@ -1,0 +1,16 @@
+packages:
+  - glob: src/*
+scenarios:
+  start:
+    output:
+      basename: app-complete
+    recorder: process
+    command: node bin/bin.js 8080 db.sqlite3
+  start-remote:
+    output:
+      basename: app-partial
+    recorder: remote
+    command: node bin/bin.js 8080 db.sqlite3
+  mocha:
+    recorder: mocha
+    command: npx mocha -r ts-node/register 'test/*.ts'
