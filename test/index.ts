@@ -5,7 +5,7 @@ import { mainAsync } from "../src/index";
 
 describe("mainAsync", () => {
   it("should return a net.Server", async () => {
-    const server = await mainAsync([]);
+    const server = await mainAsync(["0", ":memory:"]);
     assert.ok(server instanceof Server);
     await closeServerAsync(server);
   });
