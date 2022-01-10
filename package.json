@@ -30,9 +30,6 @@
     "test": "npx mocha -r ts-node/register 'test/*.ts'",
     "build": "npx tsc",
     "format": "npx prettier -w '**/*.ts'",
-    "lint": "npx eslint '**/*.ts'",
-    "appmap-start": "npx appmap-agent-js --scenario start",
-    "appmap-start-remote": "npx appmap-agent-js --scenario start-remote",
-    "appmap-mocha": "npx appmap-agent-js --scenario mocha"
+    "lint": "npx eslint '**/*.ts'"
   }
 }
