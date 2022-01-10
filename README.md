@@ -14,4 +14,4 @@ To make this repository ready for appmap, run `node install-appmap.js`. This scr
   * `npm run appmap-start`: Start the web app and write a single appmap file in `tmp/appmap` upon receiving `SIGINT`.
   * `npm run appmap-start-partial`: Start the web app and write appmap files on demand in `tmp/appmap/remote`. Start/stop recording is done via http requests as specified [here](https://appland.com/docs/reference/remote-recording.html).
 
-[terminal-recording](appmap/demo.gif)
+<p align="center"><img src="/appmap/demo.gif?raw=true"/></p>
