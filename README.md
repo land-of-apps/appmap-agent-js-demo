@@ -6,13 +6,20 @@ This project is a demonstrator for the [JavaScript agent](https://github.com/app
 * [sqlite3](https://www.google.com/search?client=safari&rls=en&q=sqlite3+npm&ie=UTF-8&oe=UTF-8) (database connection)
 * [mocha](https://mochajs.org) (unit tests)
 
+To install and deploy the web app:
+```sh
+npm install
+npm run build
+npm run start
+```
+
 To make this repository ready for appmap, run `node install-appmap.js`. This script performs three tasks:
 1. Install the agent as a npm dev dependency.
 2. Add a configuration file indicating that the files in `src` should be instrumented.
 3. Add some npm scripts:
   * `npm run appmap-test`: Run the mocha unit test suite and write an appmap file for each test case in `tmp/appmap/mocha`.
   * `npm run appmap-start`: Start the web app and write a single appmap file in `tmp/appmap` upon receiving `SIGINT`.
-  * `npm run appmap-start-partial`: Start the web app and write appmap files on demand in `tmp/appmap/remote`. Start/stop recording is done via http requests as specified [here](https://appland.com/docs/reference/remote-recording.html).
+  * `npm run appmap-start-partial`: Start the web app and write appmap files on demand in `tmp/appmap/recordings`. Start/stop recording is done via http requests as specified [here](https://appland.com/docs/reference/remote-recording.html).
 
-Manual installation and execution:
+Alternatively, manual installation and recording:
 <p align="center"><img src="/appmap/demo.gif?raw=true"/></p>
