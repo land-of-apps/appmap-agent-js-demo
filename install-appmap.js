@@ -2,7 +2,7 @@ const { writeFileSync, readFileSync } = require("fs");
 const { execSync } = require("child_process");
 
 // 1. Install the agent:
-execSync("npm install --save-dev '@appmap/appmap-agent-js'", {
+execSync("npm install --save-dev '@appland/appmap-agent-js'", {
   stdio: "inherit",
 });
 // 2. Add configuration:
