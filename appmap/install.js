@@ -7,7 +7,7 @@ execSync("npm install --save-dev '@appland/appmap-agent-js'", {
 });
 
 console.log("Adding configuration file...");
-writeFileSync("appmap.yml", "packages:\n  - glob: src/*", "utf8");
+writeFileSync("appmap.yml", "packages:\n  - glob: src/*\n", "utf8");
 
 console.log("Adding some npm scripts...");
 const npm = JSON.parse(readFileSync("package.json", "utf8"));
