@@ -8,4 +8,5 @@ echo 'log: error\npackages:\n  glob: src/*' > appmap.yml
 npx appmap-agent-js --recorder process -- node bin/bin.js 8080 db.sqlite3
 cat tmp/appmap/anonymous.appmap.json
 
-
+npx appmap-agent-js --recorder mocha -- npx mocha -r ts-node/register 'test/*.ts'
+ls tmp/appmap/mocha
