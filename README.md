@@ -13,7 +13,9 @@ npm run build
 npm run start
 ```
 
-To make this repository ready for appmap, run `node appmap/install.js`. This script performs three tasks:
+## Appmap Install Script
+
+To make this repository ready for appmap, run `node appmap/install.js`. This project-specific script performs three tasks:
 1. Install the agent as a npm dev dependency.
 2. Add a configuration file indicating that the files in `src` should be instrumented.
 3. Add some npm scripts:
@@ -23,5 +25,8 @@ To make this repository ready for appmap, run `node appmap/install.js`. This scr
 
 <p align="center"><img src="/appmap/demo2-1000ms-modified.gif?raw=true"/></p>
 
-Alternatively, manual installation and recording:
+## Appmap Manual Install
+
+Installation and execution without the project-specific script:
+
 <p align="center"><img src="/appmap/demo1.gif?raw=true"/></p>
