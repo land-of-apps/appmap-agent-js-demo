@@ -1,12 +1,14 @@
-const { writeFileSync, readFileSync } = require("fs");
+const { writeFileSync, readFileSync, readdirSync } = require("fs");
 const { execSync } = require("child_process");
 const { platform } = require("os");
 
-console.log("Installing the agent...");
-const exec = platform() === "win32" ? "npm.cmd" : "npm";
-execSync(`${exec} install --save-dev '@appland/appmap-agent-js'`, {
-  stdio: "inherit",
-});
+if (!readdirSync("node_modules").includes("@appland")) {
+  console.log("Installing the agent...");
+  const exec = platform() === "win32" ? "npm.cmd" : "npm";
+  execSync(`${exec} install --save-dev '@appland/appmap-agent-js'`, {
+    stdio: "inherit",
+  });
+}
 
 console.log("Adding configuration file...");
 writeFileSync("appmap.yml", "packages:\n  - glob: src/*\n", "utf8");
