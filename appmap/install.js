@@ -3,8 +3,8 @@ const { execSync } = require("child_process");
 const { platform } = require("os");
 
 console.log("Installing the agent...");
-const npm = platform() === "win32" ? "npm.cmd" : "npm";
-execSync(`${npm} install --save-dev '@appland/appmap-agent-js'`, {
+const exec = platform() === "win32" ? "npm.cmd" : "npm";
+execSync(`${exec} install --save-dev '@appland/appmap-agent-js'`, {
   stdio: "inherit",
 });
 
