@@ -1,8 +1,10 @@
 const { writeFileSync, readFileSync } = require("fs");
 const { execSync } = require("child_process");
+const { platform } = require("os");
 
 console.log("Installing the agent...");
-execSync("npm install --save-dev '@appland/appmap-agent-js'", {
+const npm = platform() === "win32" ? "npm.cmd" : "npm";
+execSync(`${npm} install --save-dev '@appland/appmap-agent-js'`, {
   stdio: "inherit",
 });
 
